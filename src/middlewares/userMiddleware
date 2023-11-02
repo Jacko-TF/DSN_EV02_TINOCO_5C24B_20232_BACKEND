@@ -1,0 +1,15 @@
+const { body } = require('express-validator');
+
+// Definir reglas de validación
+const validateRegister = [
+    body('username').notEmpty(),
+    body('address').notEmpty(),
+    body('email').isEmail(),
+    body('password').isLength({ min: 8 }),
+];
+
+const validateDelete = [
+    body('id').exists().notEmpty(),
+]
+
+module.exports = { validateRegister, validateDelete };
