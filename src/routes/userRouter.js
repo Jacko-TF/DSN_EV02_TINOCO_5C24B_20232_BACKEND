@@ -10,7 +10,7 @@ const {validateRegister , validateDelete} = require('../middlewares/userMiddlewa
 
 api.get('/listar',checkJwt, userController.listar)
 
-api.post('/registrar', validateRegister, userController.registrar)
+api.post('/registrar', checkJwt, validateRegister, userController.registrar)
 
 api.delete('/eliminar',checkJwt, validateDelete, userController.eliminar)
 
